@@ -30,8 +30,10 @@ vagrant file과 shellscript를 이용하여 VM생성, OS설치, APP설치, 설�
 
 ## 스택
 
+<p align="left">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="nginx" width="40" height="40"/>
    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tomcat/tomcat-original.svg" alt="tomcat" width="40" height="40"/>
    <img src="img/stacklogo/rabbit mq.png" alt="rabbitMQ"  height="40"/>
    <img src="img/stacklogo/memcached.png" alt="memcached" height="40"/>
+</p>
