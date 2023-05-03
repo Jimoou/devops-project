@@ -217,3 +217,52 @@ elasticsearch.node=vprofilenode
 </p>
 
 </details>
+
+## 03. Re-Architecting Web App on AWS Cloud [Cloud Native]
+
+<details>
+<summary>접기/펼치기(작성중)</summary>
+
+이 프로젝트의 이름은 AWS를 사용한 리팩토링입니다. 이전 프로젝트에서는 로컬 머신과 AWS 클라우드에 vprofile 애플리케이션 스택을 배포하는 방법을 알아보았습니다. 이 프로젝트에서는 서비스를 재구성하거나 리팩토링하여 기동성을 높이고 비즈니스 연속성을 개선할 것입니다.
+
+결과적으로 더 유연하고 관리하기 쉬운 인프라, 높은 성능, 빠른 확장을 구현하여 운영 오버헤드를 줄일 수 있습니다.
+
+이 프로젝트에서 사용할 AWS 서비스는 다음과 같습니다.
+
+1. Elastic Beanstalk: EC2 인스턴스 대신 사용
+2. RDS: VM/EC2 상의 MySQL 대신 사용
+3. ElastiCache: Memcache 대신 사용
+4. Amazon MQ: RabbitMQ 대신 사용
+5. Route 53: DNS 관리
+6. CloudFront: 글로벌 사용자를 위한 콘텐츠 전송 네트워크
+
+### 🏗 설계
+
+아키텍처는 다음과 같습니다: EC2 인스턴스, ELB, 오토 스케일링(Beanstalk), S3, RDS, ElastiCache, Amazon MQ, Route 53, CloudFront. 실행 흐름에 따라 필요한 작업을 순서대로 수행하고, 마지막에 URL에서 테스트합니다.
+
+![이미지](img/03.Re-Architecting+AWS+Cloud.jpg)
+
+**작업흐름**
+
+<details>
+<summary>접기/펼치기</summary>
+
+1. AWS 계정에 로그인합니다.
+2. Beanstalk 인스턴스용 키페어를 생성합니다. Beanstalk는 EC2 인스턴스를 자동으로 생성하므로, 필요한 경우 이 키페어를 사용하여 로그인할 수 있습니다.
+3. 백엔드 서비스(ElastiCache, RDS, Amazon MQ)용 보안 그룹을 생성합니다.
+4. RDS, ElastiCache, Amazon MQ를 생성합니다.
+5. Elastic Beanstalk 환경을 생성합니다.
+6. Beanstalk 보안 그룹에서 백엔드 보안 그룹으로의 트래픽을 허용하도록 백엔드 보안 그룹을 업데이트합니다.
+7. 백엔드 서비스가 서로 상호작용할 수 있도록 백엔드 보안 그룹 내에서 내부 트래픽을 허용하도록 업데이트합니다.
+8. RDS 데이터베이스를 초기화합니다. 이를 위해 EC2 인스턴스를 실행하고, 그곳에서 MySQL 로그인을 사용해 RDS에 접속하여 데이터베이스를 초기화합니다.
+9. Beanstalk의 헬스 체크를 /login 페이지로 변경합니다.
+10. Elastic Load Balancer에 443 https 리스너를 추가합니다.
+11. 백엔드 정보를 포함하여 소스 코드에서 아티팩트를 빌드합니다. 이 시점에는 RDS, Amazon MQ, ElastiCache의 엔드포인트 정보가 있어야 합니다. 이 정보를 애플리케이션 속성 파일에 입력하고 아티팩트를 빌드합니다.
+12. 아티팩트를 Beanstalk 환경에 배포합니다.
+13. Amazon CloudFront를 사용하여 SSL 인증서와 함께 콘텐츠 전송 네트워크를 생성합니다.
+14. GoDaddy 또는 Amazon Route 53의 퍼블릭 DNS 영역에 로드 밸런서와 엔드포인트를 업데이트합니다.
+15. 모든 설정이 완료되면 URL에서 테스트를 진행합니다.
+
+</details>
+
+</details>
