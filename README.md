@@ -242,10 +242,7 @@ elasticsearch.node=vprofilenode
 
 ![이미지](img/03.Re-Architecting+AWS+Cloud.jpg)
 
-**작업흐름**
-
-<details>
-<summary>접기/펼치기</summary>
+### ⏳ 작업-흐름
 
 1. AWS 계정에 로그인합니다.
 2. Beanstalk 인스턴스용 키페어를 생성합니다. Beanstalk는 EC2 인스턴스를 자동으로 생성하므로, 필요한 경우 이 키페어를 사용하여 로그인할 수 있습니다.
