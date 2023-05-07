@@ -221,7 +221,7 @@ elasticsearch.node=vprofilenode
 ## 03. Re-Architecting Web App on AWS Cloud [Cloud Native]
 
 <details>
-<summary>접기/펼치기(작성중)</summary>
+<summary>접기/펼치기</summary>
 
 이 프로젝트의 이름은 AWS를 사용한 리팩토링입니다. 이전 프로젝트에서는 로컬 머신과 AWS 클라우드에 vprofile 애플리케이션 스택을 배포하는 방법을 알아보았습니다. 이 프로젝트에서는 서비스를 재구성하거나 리팩토링하여 기동성을 높이고 비즈니스 연속성을 개선할 것입니다.
 
