@@ -4,6 +4,7 @@
 
 - [01. Vagrant + VM(VirtualBox)](#01-vagrant--vmvirtualbox)
 - [02. AWS Cloud for Web App Setup [Lift & Shift]](#02-aws-cloud-for-web-app-setup-lift-and-shift)
+- [03. Re-Architecting Web App on AWS Cloud [Cloud Native]](#03-re-architecting-web-app-on-aws-cloud-cloud-native)
 
 ## 01. Vagrant + VM(VirtualBox)
 
