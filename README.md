@@ -267,6 +267,9 @@ elasticsearch.node=vprofilenode
 
 ## 04. Jenkins(CI/CD)
 
+<details>
+<summary>접기/펼치기</summary>
+
 이 프로젝트의 목표는 Jenkins 작업을 자동으로 생성하여 전체 파이프라인을 스크립트 방식으로 만드는 것입니다. 이 프로젝트를 시작하기 전에 파이프라인에 대한 이해와 Jenkins Pipeline DSL을 사용하여 작성하는 방법에 대한 이해가 필요합니다.
 
 Jenkins의 파이프라인 as 코드는 Jenkins 파일(J Capital)을 사용하여 파이프라인을 자동으로 설정하는 방식입니다. Jenkins 파일은 파이프라인의 단계를 정의하며, Groovy와 매우 유사한 자체 도메인 특정 언어를 사용합니다. 선언형과 스크립트 방식의 두 가지 구문이 있으며, 이 프로젝트에서는 선언형을 사용합니다.
@@ -298,3 +301,9 @@ Jenkins 파이프라인은 빌드, 테스트, 배포 등의 작업을 자동화�
 1. **지속적인 통합 (Continuous Integration, CI)**: 코드가 팀의 코드 저장소에 지속적으로 병합되고, 자동 빌드 및 테스트가 수행되어 개발자가 신속하게 문제를 발견하고 해결할 수 있도록 합니다.
 
 2. **지속적인 전달 (Continuous Delivery, CD)**: CI 프로세스를 확장하여 애플리케이션을 자동으로 생산 환경에 배포할 수 있습니다. 이를 통해 고품질의 소프트웨어가 신속하게 제공됩니다.
+
+</details>
+
+## 05. Jenkins와 다양한 툴들을 이용한 CI
+
+이 프로젝트에서는 Jenkins, Git, GitHub, Maven, Checkstyle, Slack, Nexus, SonarQube 등의 도구를 활용하여 지속적인 통합 파이프라인을 설정합니다. 개발자가 코드를 변경하면, 이 변경사항이 GitHub에 반영되고, Jenkins가 이를 감지하여 코드를 빌드하고 테스트합니다. 또한 코드 분석 도구를 통해 코드 품질을 확인하고, 모든 단계가 성공적으로 진행되면 소프트웨어는 Nexus 저장소에 저장됩니다.
