@@ -307,4 +307,23 @@ Jenkins 파이프라인은 빌드, 테스트, 배포 등의 작업을 자동화�
 
 ## 05. Jenkins와 다양한 툴들을 이용한 CI
 
+<details>
+<summary>접기/펼치기(작성중)</summary>
+
 이 프로젝트에서는 Jenkins, Git, GitHub, Maven, Checkstyle, Slack, Nexus, SonarQube 등의 도구를 활용하여 지속적인 통합 파이프라인을 설정합니다. 개발자가 코드를 변경하면, 이 변경사항이 GitHub에 반영되고, Jenkins가 이를 감지하여 코드를 빌드하고 테스트합니다. 또한 코드 분석 도구를 통해 코드 품질을 확인하고, 모든 단계가 성공적으로 진행되면 소프트웨어는 Nexus 저장소에 저장됩니다.
+
+### 🛠 Stack
+
+1. Jenkins: 지속적 통합 서버로서의 역할을 합니다.
+2. Git과 GitHub: 버전 관리 시스템으로 사용합니다.
+3. Maven: Java 코드를 빌드하는 도구입니다.
+4. Checkstyle과 SonarQube: 코드 분석 도구로 사용합니다.
+5. Slack: 알림 시스템으로 사용합니다.
+6. Nexus: 아티팩트 저장소로서 역할을 합니다.
+7. Amazon EC2: 모든 서버를 설정하는 데 사용됩니다.
+
+### 🏗 설계
+
+![이미지](img/05.ContinuousIntegration.jpg)
+
+</details>
